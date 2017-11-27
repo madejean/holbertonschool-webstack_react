@@ -7,7 +7,7 @@ const initialState = {
 export default function(state=initialState, action) {
   switch(action.type){
     case "UPDATE":
-      if (state.values === '+' || state.values === '-' || state.values === 'x' || state.values === '/' || state.values === '=') {
+      if (state.values === '+' || state.values === '-' || state.values === 'x' || state.values === '/') {
         return {
           ...state,
           values: action.number,
@@ -44,28 +44,34 @@ export default function(state=initialState, action) {
         operation: '/'
       }
     case "RESULT":
+    var secondNumber = [];
+      for(let i = 0; i < state.lastValues.length; i++) {
+        if (Number.isInteger(state.lastValues[i])) {
+          secondNumber.push(state.lastValues[i])
+        }
+      }
       if (state.operation === '+') {
         return {
           ...state,
-          values: Number(state.lastValues[0]) + state.lastValues[1]
+          values: Number(state.lastValues[0]) + Number(secondNumber.join(''))
         }
       }
       if (state.operation === '-') {
         return {
           ...state,
-          values: Number(state.lastValues[0] - state.lastValues[1])
+          values: Number(state.lastValues[0]) - Number(secondNumber.join(''))
         }
       }
       if (state.operation === 'x') {
         return {
           ...state,
-          values: Number(state.lastValues[0] * state.lastValues[1])
+          values: Number(state.lastValues[0]) * Number(secondNumber.join(''))
         }
       }
       if (state.operation === '/') {
         return {
           ...state,
-          values: Number(state.lastValues[0] / state.lastValues[1])
+          values: Number(state.lastValues[0]) / Number(secondNumber.join(''))
         }
       }
     case "RESET": {
