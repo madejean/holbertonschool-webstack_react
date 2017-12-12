@@ -29,19 +29,18 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetching: () => {
-    dispatch({
+      dispatch({
         type: 'FETCHING',
-        is_fetching: true,
-        res: "",
+        is_fetching: true
       })
       fetch('http://0.0.0.0:5001/api/v1/status')
         .then(res => {
           dispatch({
-            type: 'FETCHING',
+            type: 'RECEIVED',
             is_fetching: false,
             res: res.statusText
           })
-      })
+        })
     },
     reset: () => {
       dispatch({
