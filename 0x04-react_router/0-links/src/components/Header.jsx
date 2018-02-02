@@ -6,8 +6,8 @@ const Header = () => (
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/Holberton">Holberton</Link></li>
-        <li><Link to="/School">School</Link></li>
+        <li><Link to="/holberton">Holberton</Link></li>
+        <li><Link to="/school">School</Link></li>
       </ul>
     </div>
   </Router>
