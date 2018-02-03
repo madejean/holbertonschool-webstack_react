@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Year from './Year.jsx';
 
 const Curriculums = () => (
