@@ -5,7 +5,6 @@ import Year from './Year.jsx';
 
 class Curriculums extends React.Component {
   render() {
-  console.log(this.props.curriculums)
     return (
       <div>
         <ul>
